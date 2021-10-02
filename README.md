@@ -16,6 +16,8 @@ The plugin is so far only tested with FIT files from the following devices:
 
 Please report successful usage from any other devices. 
 
+See the [wiki](https://github.com/jkall/qgis-fit-plugin/wiki) for instructions on how to use the plugin.  
+
 The FIT plugin is released as free software under GNU General Public License. The included [python fitparse module](https://github.com/dtcooper/python-fitparse) is released under the MIT License.  
 
 _Copyright (c) 2021 [josef k](https://github.com/jkall/)_
