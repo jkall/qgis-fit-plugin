@@ -3,17 +3,21 @@
 name=FIT
 qgisMinimumVersion=3.0
 description=Import FIT files from training devices (garmin and others)
-version=0.1
+version=0.2
 author=Josef Källgården
 email=groundwatergis@gmail.com
-about=FIT plugin is based upon the python-fitparse module to import FIT files from training devices (garmin and others) into a spatialite database, and optionally converted to gpx and csv. The plugin also enables som basic plotting of speed, altitude and so on. 
+about=FIT plugin is based upon the python-fitparse module to import FIT files from training devices (garmin and others) into a spatialite database, and optionally converted to gpx and csv. The plugin also enables some basic plotting of speed, altitude and so on. 
 tracker=https://github.com/jkall/qgis-fit-plugin/issues?state=open
 repository=https://github.com/jkall/qgis-fit-plugin.git
 # End of mandatory metadata
 
 # Recommended items:
 hasProcessingProvider=no
-# changelog=
+changelog=
+        Version 0.2
+        - fixes relative import from fitparse
+        Version 0.1
+        - first release
 
 # Tags are comma separated with spaces allowed
 tags=python,garmin,FIT,training

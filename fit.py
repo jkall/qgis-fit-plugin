@@ -47,7 +47,7 @@ except:
 #add plugin directory to pythonpath (needed here to allow importing the module from subfolders)
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/fitparse'))
-from fit.fitparse.base import FitFile
+from fitparse.base import FitFile
 
 class FIT:
 
