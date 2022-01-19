@@ -584,15 +584,15 @@ class FIT:
                         if record_data.name=='timestamp': r_timestamp=record_data.value; continue;
                         if not (type(record_data.value) is int or type(record_data.value) is float): 
                             continue # if non-numerial, we are not interested, then go to nex iteration!
-                        if record_data.name=='position_lat': r_position_lat=self.semicircles2degrees(record_data.value); continue;
-                        if record_data.name=='position_long': r_position_lon=self.semicircles2degrees(record_data.value); continue;
-                        if record_data.name=='altitude': r_altitude=record_data.value; continue;
-                        if record_data.name=='enhanced_altitude': r_enhanced_altitude=record_data.value; continue;
-                        if record_data.name=='enhanced_speed': r_enhanced_speed=record_data.value; continue;
-                        if record_data.name=='speed': r_speed=record_data.value; continue;
+                        if record_data.name=='position_lat': r_position_lat=round(self.semicircles2degrees(record_data.value),10); continue;
+                        if record_data.name=='position_long': r_position_lon=round(self.semicircles2degrees(record_data.value),10); continue;
+                        if record_data.name=='altitude': r_altitude=round(record_data.value,1); continue;
+                        if record_data.name=='enhanced_altitude': r_enhanced_altitude=round(record_data.value,1); continue;
+                        if record_data.name=='enhanced_speed': r_enhanced_speed=round(record_data.value,3); continue;
+                        if record_data.name=='speed': r_speed=round(record_data.value,3); continue;
                         if record_data.name=='cadence': r_cadence=record_data.value; continue;
                         if record_data.name=='distance': r_distance=record_data.value; continue;
-                        if record_data.name=='heart_rate': r_heartrate=record_data.value; continue;
+                        if record_data.name=='heart_rate': r_heartrate=round(record_data.value,0); continue;
                         if record_data.name=='temperature': r_temperature=record_data.value; continue;
                         if record_data.name=='vertical_speed': r_vertical_speed=record_data.value; continue;
 
