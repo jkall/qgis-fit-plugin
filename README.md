@@ -4,7 +4,8 @@ A QGIS plugin for importing [FIT files](https://developer.garmin.com/fit/protoco
 Activities, sessions and locations may be imported from the training device into a spatialite database. Optionally also converted to gpx and csv files. The plugin also includes a simple feature to create some basic plots of speed, altitude, heartrate etc. and also visualize speed on the map. 
 
 The plugin is so far only tested with FIT files from the following devices:
- * Garmin Edge 500
+ * Garmin Edge 500 
+ * Garmi Edge 520 Plus (probably OK with all Edge 5xx)
  * Garmin Edge 810
  * Garmin Edge 820
  * Garmin fenix 2
