@@ -12,6 +12,7 @@ The plugin is so far only tested with FIT files from the following devices:
  * Garmin fenix 5
  * Garmin forerunner 110
  * Garmin forerunner 935
+ * Garmin forerunner 945
  * Garmin vivoactive HR
  * Speedcoach GPS
 
