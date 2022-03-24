@@ -5,7 +5,7 @@ Activities, sessions and locations may be imported from the training device into
 
 The plugin is so far only tested with FIT files from the following devices:
  * Garmin Edge 500 
- * Garmi Edge 520 Plus (probably OK with all Edge 5xx)
+ * Garmin Edge 520 Plus (probably OK with all Edge 5xx)
  * Garmin Edge 810
  * Garmin Edge 820
  * Garmin fenix 2
