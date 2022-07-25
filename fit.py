@@ -599,34 +599,35 @@ class FIT:
                 # if we have a timestamp, then store as a trackpoint
                 # also we need to check whether this record belongs to current session (i.e. r_timestamp is witin time span for this session)
                 # due to some corrupt FIT files we also need to search for first tiestamp...
-                if not r_timestamp==None and r_timestamp>=session_start_time and r_timestamp<=sessions['timestamp'][track_no]:
-                    trackpoints['timestamp'].append(r_timestamp)
-                    trackpoints['start_time_utc'].append(sessions['start_time_utc'][track_no])
-                    trackpoints['heartrate'].append(r_heartrate)
-                    trackpoints['temperature'].append(r_temperature)
-                    trackpoints['cadence'].append(r_cadence)
-                    trackpoints['position_lat'].append(r_position_lat)  
-                    trackpoints['position_lon'].append(r_position_lon)
-                    if r_position_lat and r_position_lon:
-                        tracks['wkt_linestring'][track_no]=tracks['wkt_linestring'][track_no]+'{} {},'.format(str(r_position_lon),str(r_position_lat))# terrible terrible method of  adding coordinate pairs to wkt linestring
-                        if numsessions==0 and not sessions['start_position_lat'][0]  and not sessions['start_position_lon'][0]: # for a corrupt FIT file: catch first coordinate pairs as start pos for session
-                            sessions['start_position_lat'][0]=r_position_lat
-                            sessions['start_position_lon'][0]=r_position_lon
-                    if r_altitude:
-                        trackpoints['altitude'].append(r_altitude)
-                    elif r_enhanced_altitude:
-                        trackpoints['altitude'].append(r_enhanced_altitude)
-                    else:
-                        try:
-                            trackpoints['altitude'].append(elevation_data.get_elevation(r_position_lat, r_position_lon))
-                        except:
-                            trackpoints['altitude'].append(None)
-                    if r_speed: 
-                        trackpoints['speed'].append(r_speed)
-                    else:
-                        trackpoints['speed'].append(r_enhanced_speed)
-                    trackpoints['distance'].append(r_distance)
-                    trackpoints['vertical_speed'].append(r_vertical_speed)
+                if not r_timestamp==None:
+                    if r_timestamp>=session_start_time and r_timestamp<=sessions['timestamp'][track_no]:
+                        trackpoints['timestamp'].append(r_timestamp)
+                        trackpoints['start_time_utc'].append(sessions['start_time_utc'][track_no])
+                        trackpoints['heartrate'].append(r_heartrate)
+                        trackpoints['temperature'].append(r_temperature)
+                        trackpoints['cadence'].append(r_cadence)
+                        trackpoints['position_lat'].append(r_position_lat)  
+                        trackpoints['position_lon'].append(r_position_lon)
+                        if r_position_lat and r_position_lon:
+                            tracks['wkt_linestring'][track_no]=tracks['wkt_linestring'][track_no]+'{} {},'.format(str(r_position_lon),str(r_position_lat))# terrible terrible method of  adding coordinate pairs to wkt linestring
+                            if numsessions==0 and not sessions['start_position_lat'][0]  and not sessions['start_position_lon'][0]: # for a corrupt FIT file: catch first coordinate pairs as start pos for session
+                                sessions['start_position_lat'][0]=r_position_lat
+                                sessions['start_position_lon'][0]=r_position_lon
+                        if r_altitude:
+                            trackpoints['altitude'].append(r_altitude)
+                        elif r_enhanced_altitude:
+                            trackpoints['altitude'].append(r_enhanced_altitude)
+                        else:
+                            try:
+                                trackpoints['altitude'].append(elevation_data.get_elevation(r_position_lat, r_position_lon))
+                            except:
+                                trackpoints['altitude'].append(None)
+                        if r_speed: 
+                            trackpoints['speed'].append(r_speed)
+                        else:
+                            trackpoints['speed'].append(r_enhanced_speed)
+                        trackpoints['distance'].append(r_distance)
+                        trackpoints['vertical_speed'].append(r_vertical_speed)
 
                 record_no +=1
 
