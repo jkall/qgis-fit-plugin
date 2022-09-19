@@ -217,7 +217,7 @@ class FIT:
 
     def select_input_files(self): 
         # getOpenFileNames returns a tuple and the first position contains a list with full path to each of the selected files
-        self.input_files = QFileDialog().getOpenFileNames(None, "Select input files ","", 'FIT files (*.FIT)') 
+        self.input_files = QFileDialog().getOpenFileNames(None, "Select input files ","", 'FIT files (*.FIT *.fit)')
         self.inp_files_list=[]
         for file in self.input_files[0]: 
             self.inp_files_list.append(os.path.basename(file))
