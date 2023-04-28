@@ -241,7 +241,7 @@ class FIT:
         #CREATE TABLE IF NOT EXISTS "layer_styles"(id INTEGER PRIMARY KEY AUTOINCREMENT,f_table_catalog varchar(256),f_table_schema varchar(256),f_table_name varchar(256),f_geometry_column varchar(256),styleName text,styleQML text,styleSLD text,useAsDefault boolean,description text,owner varchar(30),ui text,update_time timestamp DEFAULT CURRENT_TIMESTAMP);
 
         # Read layer_styles file and change paths to installation folder for plugin 
-        newlayerstylesfile = open(os.path.join(os.path.dirname(tempfile.gettempdir()),"layer_styles.csv"), "w+")
+        newlayerstylesfile = open(os.path.join(tempfile.gettempdir(),"layer_styles.csv"), "w+")
         with open(os.path.join(os.path.dirname(__file__),"defs", "layer_styles_template.csv"), "r") as file:
             filedata = file.read()
         newlayerstylesfile.write(filedata.replace('SET_RELEVANT_PATH/', os.path.join(os.path.dirname(__file__), 'svg')+ os.sep))   # Notice last os.sep to also  replace the final separator 
@@ -250,12 +250,12 @@ class FIT:
         # create tables in database and fill layer styles table 
         with spatialite_connect(str(self.db[0])) as conn:
             cur = conn.cursor()
-            pd.read_csv(os.path.join(os.path.dirname(tempfile.gettempdir()),"layer_styles.csv"),sep=';').to_sql("layer_styles_by_plugin", conn, if_exists='replace', index=False) # ERROR TypeError: no columns to parse from
+            pd.read_csv(os.path.join(tempfile.gettempdir(),"layer_styles.csv"),sep=';').to_sql("layer_styles_by_plugin", conn, if_exists='replace', index=False) # ERROR TypeError: no columns to parse from
             cur.executescript(sqlitestring)
 
         # remove temporary layer styles file 
         try:
-            os.remove(os.path.join(os.path.dirname(tempfile.gettempdir()),"layer_styles.csv"))
+            os.remove(os.path.join(tempfile.gettempdir(),"layer_styles.csv"))
         except OSError:
             pass
             
